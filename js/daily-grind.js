@@ -17,9 +17,18 @@ name - the name of the coffee
 color - color associated with the coffee
 */
 
+function coffeeTemplate(coffee){
+    return `
+    <p>
+    <img src="${coffee.pic}" alt="${coffee.alt}" id="coffee" />
+   <strong class="feature">${coffee.day}'s Coffee Special:</strong> ${coffee.day}'s daily coffee special is <strong class="feature">${coffee.name}</strong>, ${coffee.desc}
+</p>`;
+}
+
 let myDate = new Date();
 let myDay = myDate.getDay();
 let today = "";
+let coffee = "";
 
 console.log(myDay);
 
@@ -30,6 +39,19 @@ switch(myDay){
     case 1:
         today = "Monday";
     break;
+    case 2:
+        today = "Tuesday";
+        coffee = {
+            name: "Bubble Tea",
+            pic: "images/bubble-tea.jpg",
+            alt: "a picture of a bubble tea",
+            color: "pink",
+            day: "Tuesday",
+            desc: `I like me some Bubble Tea!`
+};
+
+    break;
+
 
     default:
         today = "Something went wrong!";
@@ -37,14 +59,10 @@ switch(myDay){
 
 };
 
-let coffee = {
-    name: "Bubble Tea",
-    pic: "images/bubble-tea.jpg",
-    alt: "a picture of a bubble tea",
-    color: "pink",
-    day: "Tuesday",
-    desc: "I like me some Bubble Tea!"
-};
+//places our coffee object on the page 
+document.getElementById("coffee-cup").innerHTML = coffeeTemplate(coffee);
 
+//changes color of html element
+document.querySelector("html").style.backgroundColor = coffee.color;
 
-console.log(coffee);
+console.log(today);
