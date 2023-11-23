@@ -32,13 +32,48 @@ let coffee = "";
 
 console.log(myDay);
 
+//use location object to access querystring (address bar)
+const queryString = window.location.search;
+    
+//output to console    
+console.log(queryString);
+    
+//separate query string parameters
+const urlParams = new URLSearchParams(queryString);
+
+if(urlParams.has("day")){//from querystring
+    myDay = urlParams.get("day");
+ }
+ 
+//change string to an integar
+ myDay = parseInt(myDay);
 switch(myDay){
     case 0:
         today = "Sunday";
+        coffee = {
+            name: "Pumpkin Spice Latte",
+            pic: "images/pumpkin-spice-latte.jpg",
+            alt: "a picture of a pumpkin spice latte",
+            color: "orange",
+            day: "Sunday",
+            desc: `which is sweet and tastes like spiced pumpkin!!`
+};
+
     break;
+
     case 1:
         today = "Monday";
+        coffee = {
+            name: "Cold Brew",
+            pic: "images/cold-brew.jpg",
+            alt: "a picture of a cold brew",
+            color: "teal",
+            day: "Monday",
+            desc: `which is cold and tastes bitter and sweet!!`
+};
+
     break;
+
     case 2:
         today = "Tuesday";
         coffee = {
@@ -48,6 +83,58 @@ switch(myDay){
             color: "pink",
             day: "Tuesday",
             desc: `I like me some Bubble Tea!`
+};
+
+    break;
+
+    case 3:
+        today = "Wednesday";
+        coffee = {
+            name: "Mocha",
+            pic: "images/mocha.jpg",
+            alt: "a picture of a mocha",
+            color: "brown",
+            day: "Wednesday",
+            desc: `which is nice and chocolatey!!`
+};
+
+    break;
+
+    case 4:
+        today = "Thursday";
+        coffee = {
+            name: "Drip",
+            pic: "images/drip.jpg",
+            alt: "a picture of drip coffee",
+            color: "black",
+            day: "Thursday",
+            desc: `which is dark and bitter!`
+};
+
+    break;
+
+    case 5:
+        today = "Friday";
+        coffee = {
+            name: "Caramel Latte",
+            pic: "images/caramel-latte.jpg",
+            alt: "a picture of a caramel latte",
+            color: "purple",
+            day: "Friday",
+            desc: `which is sweet and caramely!!`
+};
+
+    break;
+
+    case 6:
+        today = "Saturday";
+        coffee = {
+            name: "Frappaccino",
+            pic: "images/frappaccino.jpg",
+            alt: "a picture of a frappaccino",
+            color: "green",
+            day: "Saturday",
+            desc: `which is cold and sweet!!`
 };
 
     break;
